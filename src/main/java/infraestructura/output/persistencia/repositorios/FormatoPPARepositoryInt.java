@@ -1,5 +1,9 @@
 package infraestructura.output.persistencia.repositorios;
 
-public class FormatoARepositoryInt {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import infraestructura.output.persistencia.entidades.FormatoPPAEntity;
+
+public interface FormatoPPARepositoryInt extends JpaRepository<FormatoPPAEntity, Integer> {
     
 }
