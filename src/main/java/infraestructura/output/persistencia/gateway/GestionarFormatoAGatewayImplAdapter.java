@@ -1,5 +1,7 @@
 package infraestructura.output.persistencia.gateway;
 
-public class GestionarFormatoAGatewayImplAdapter {
+import aplicacion.output.GestionarFormatoAGatewayIntPort;
+
+public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGatewayIntPort {
     
 }
