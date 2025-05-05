@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.input.GestionarFormatoACUIntPort;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarFormatoAGatewayIntPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarFormatoAGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Estado;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoPPA;
@@ -17,9 +17,9 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outpu
 
 public class GestionarFormatoACUAdapter implements GestionarFormatoACUIntPort {
 
-    private final GestionarFormatoAGatewayIntPort objGestionarFormatoAGatewayIntPort;
+    private final GestionarFormatoAGatewayOutPort objGestionarFormatoAGatewayIntPort;
 
-    public GestionarFormatoACUAdapter(GestionarFormatoAGatewayIntPort objGestionarFormatoAGatewayIntPort) {
+    public GestionarFormatoACUAdapter(GestionarFormatoAGatewayOutPort objGestionarFormatoAGatewayIntPort) {
         this.objGestionarFormatoAGatewayIntPort = objGestionarFormatoAGatewayIntPort;
     }
 

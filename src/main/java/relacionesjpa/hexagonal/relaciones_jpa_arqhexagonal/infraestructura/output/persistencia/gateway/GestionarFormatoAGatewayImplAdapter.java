@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarFormatoAGatewayIntPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarFormatoAGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoPPA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoTIA;
@@ -19,7 +19,7 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outpu
 
 @Component
 @RequiredArgsConstructor
-public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGatewayIntPort {
+public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGatewayOutPort {
      
     private final FormatoPPARepositoryInt objFormatoPPARepositoryInt;
     private final FormatoTIRepositoryInt objFormatoTIARepositoryInt;

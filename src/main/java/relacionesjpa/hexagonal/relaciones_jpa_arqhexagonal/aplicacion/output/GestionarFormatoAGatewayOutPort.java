@@ -4,7 +4,7 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Forma
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoPPA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoTIA;
 
-public interface GestionarFormatoAGatewayIntPort {
+public interface GestionarFormatoAGatewayOutPort {
     
     public FormatoPPA crearFormatoPPA(FormatoPPA formatoppa);
     public FormatoPPA modificarFormatoPPA(FormatoPPA formatoppa);
