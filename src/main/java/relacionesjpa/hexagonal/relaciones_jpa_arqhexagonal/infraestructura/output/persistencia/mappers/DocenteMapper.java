@@ -1,14 +1,16 @@
 package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.mappers;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import java.util.List;
 
-@Configuration
-public class DocenteMapper {
-    
-    @Bean
-    public ModelMapper crearDocenteMapper(){
-        return new ModelMapper();
-    }
+import org.mapstruct.Mapper;
+
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.DocenteEntity;
+
+@Mapper(componentModel = "spring")
+public interface DocenteMapper {
+
+    Docente mappearADocente(DocenteEntity docenteEntity);
+    DocenteEntity mappearAEntity(Docente domain);
+    List<Docente> toDomainList(List<DocenteEntity> entities);
 }

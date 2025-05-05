@@ -31,10 +31,15 @@ public class DocenteRestController {
     @PostMapping("/docentes")
     public ResponseEntity<DocenteDTORespuesta> create(@RequestBody @Valid DocenteDTOPeticion objDocente){
         System.out.println("Docente recibido: " + objDocente.toString());
-        Docente objDocenteCrear = objMapeador.mappearDePeticionADocente(objDocente);
 
-        System.out.println("Docente mapeado: " + objDocenteCrear.toString());
+        Docente objDocenteCrear = objMapeador.mappearDePeticionADocente(objDocente);
+        System.out.println("Docente mapeado a dominio: " + objDocenteCrear.getNombresDocente()+
+        objDocenteCrear.getApellidosDocente()+objDocenteCrear.getNombreGrupo()+objDocenteCrear.getCorreo());
+
         Docente objDocenteCreado = objGestionarDocenteCUInt.crearDocente(objDocenteCrear);
+        System.out.println("Docente creado: " + objDocenteCreado.getNombresDocente()+
+        objDocenteCreado.getApellidosDocente()+objDocenteCreado.getNombreGrupo()+objDocenteCreado.getCorreo());
+
         ResponseEntity<DocenteDTORespuesta> objRespuesta = new ResponseEntity<DocenteDTORespuesta>(
             objMapeador.mappearDeDocenteARespuesta(objDocenteCreado),
             HttpStatus.CREATED

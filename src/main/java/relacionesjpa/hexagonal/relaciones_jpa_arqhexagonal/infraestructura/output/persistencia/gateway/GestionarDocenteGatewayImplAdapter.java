@@ -2,41 +2,37 @@ package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outp
 
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-import org.modelmapper.TypeToken;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import lombok.RequiredArgsConstructor;
+
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarDocenteGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.DocenteEntity;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.mappers.DocenteMapper;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.repositorios.DocentesRepositoryInt;
 
-@Service
+@Component
+@RequiredArgsConstructor
 public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatewayOutPort {
 
     private final DocentesRepositoryInt objDocenteRepository;
-    private final ModelMapper docenteModelMapper;
-
-    public GestionarDocenteGatewayImplAdapter(DocentesRepositoryInt objDocenteRepository,
-        ModelMapper docenteModelMapper
-    ){
-        this.objDocenteRepository = objDocenteRepository;
-        this.docenteModelMapper = docenteModelMapper;
-    }
+    private final DocenteMapper docenteMapper;
 
     @Override
+    @Transactional
     public Docente guardarDocente(Docente docente) {
-        DocenteEntity objDocenteEntity = this.docenteModelMapper.map(docente, DocenteEntity.class);
-        DocenteEntity objDocenteEntityRegistrado = this.objDocenteRepository.save(objDocenteEntity);
-        Docente objDocenteRespuesta = this.docenteModelMapper.map(objDocenteEntityRegistrado, Docente.class);
-        return objDocenteRespuesta;
+        DocenteEntity docenteEntity = docenteMapper.mappearAEntity(docente);
+        DocenteEntity docenteRegistrado = objDocenteRepository.save(docenteEntity);
+        return docenteMapper.mappearADocente(docenteRegistrado);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Docente> listarTodos() {
-        Iterable<DocenteEntity> lista = this.objDocenteRepository.findAll();
-        List<Docente> listaObtenida = this.docenteModelMapper.map(lista, new TypeToken<List<Docente>>() {        
-        }.getType());
-        return listaObtenida;
+        List<DocenteEntity> listaDocentes = objDocenteRepository.findAll();
+        return docenteMapper.toDomainList(listaDocentes);
     }
 
     @Override
