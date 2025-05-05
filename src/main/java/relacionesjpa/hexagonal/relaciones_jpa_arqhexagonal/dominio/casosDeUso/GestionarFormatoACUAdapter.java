@@ -3,8 +3,11 @@ package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.casosDeUso;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
+import jakarta.persistence.EntityNotFoundException;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.input.GestionarFormatoACUIntPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarFormatoAGatewayOutPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Estado;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoPPA;
@@ -36,6 +39,7 @@ public class GestionarFormatoACUAdapter implements GestionarFormatoACUIntPort {
         return (FormatoPPA) formatoCreado;
 
     }
+
 
   
 

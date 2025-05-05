@@ -27,11 +27,11 @@ public class FormatoRestController {
     private final FormatoAMapperInfraestructuraDominio formatoMapper;
 
     @PostMapping("/crear/ppa")
-    public ResponseEntity<FormatoDTORespuesta> crearFormatoPPA(@RequestBody @Valid FormatoDTOPeticion formatoDTOPeticion) {
+    public ResponseEntity<FormatoDTORespuesta> crearFormatoPPA(@RequestBody @Valid FormatoPPDTOPeticion formatoDTOPeticion) {
     
         FormatoPPA formatoPPA = formatoMapper.mapearDePeticionAFormatoPPA(formatoDTOPeticion);
         FormatoPPA formatoCreado = gestionarFormatoACUIntPort.crearFormatoPPA(formatoPPA);
-        FormatoDTORespuesta formatoDTORespuesta = formatoMapper.mapearDeFormatoPPA_ARespuesta(formatoCreado);
+        FormatoDTORespuesta formatoDTORespuesta = formatoMapper.mapearDeFormatoAARespuesta(formatoCreado);
         return new ResponseEntity<>(formatoDTORespuesta, HttpStatus.CREATED);
     }
     

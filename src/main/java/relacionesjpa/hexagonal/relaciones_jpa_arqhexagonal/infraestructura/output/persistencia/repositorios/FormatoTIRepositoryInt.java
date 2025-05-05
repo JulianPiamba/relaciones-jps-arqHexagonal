@@ -1,6 +1,5 @@
 package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.repositorios;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,37 +7,27 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.EvaluacionEntity;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoAEntity;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoPPAEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoTIAEntity;
 
 public interface FormatoTIRepositoryInt extends JpaRepository<FormatoTIAEntity, Integer> {
-     Optional<FormatoTIAEntity> findById(Integer id);
 
-    @Query(value = """
-        SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END FROM (
-            SELECT titulo FROM formatosPPA WHERE titulo = :titulo
-            UNION
-            SELECT titulo FROM formatosTIA WHERE titulo = :titulo
-        ) AS sub
-        """, nativeQuery = true)
-    int existsByTitulo(@Param("titulo") String titulo);
-    
-    boolean existsById(Integer id);
+    // Buscar por nombre exacto del primer estudiante
+    List<FormatoTIAEntity> findByNombreEstudiante1(String nombreEstudiante1);
 
-    @Query("SELECT f FROM FormatoAEntity f " +
-        "JOIN f.estado e " +
-        "JOIN f.objDocente d " +
-        "WHERE d.correo = :correo " +
-        "AND e.fechaRegistro >= :fechaInicio " +
-        "AND e.fechaRegistro <= :fechaFin")
-    List<FormatoAEntity> findByTituloAndFechaInicioAndFechaFin(
-        @Param("correo") String correo,
-        @Param("fechaInicio") Date fechaInicio,
-        @Param("fechaFin") Date fechaFin
-    );
+    // Buscar por nombre exacto del segundo estudiante
+    List<FormatoTIAEntity> findByNombreEstudiante2(String nombreEstudiante2);
 
-    @Query(value = "SELECT e FROM EvaluacionEntity e WHERE e.objFormato.id = :idFormatoA ORDER BY e.fechaRegistroConcepto DESC")
-    Optional<EvaluacionEntity> obtenerUltimaEvaluacionPorFormatoA(@Param("idFormatoA") Integer idFormatoA);
+    // Buscar por título
+    Optional<FormatoTIAEntity> findByTitulo(String titulo);
+
+    // Buscar por fragmento del título (ignorando mayúsculas/minúsculas)
+    List<FormatoTIAEntity> findByTituloContainingIgnoreCase(String parteTitulo);
+
+    // Buscar por uno de los dos estudiantes (consulta JPQL personalizada)
+    @Query("SELECT f FROM FormatoTIAEntity f WHERE f.nombreEstudiante1 = :nombre OR f.nombreEstudiante2 = :nombre")
+    List<FormatoTIAEntity> findByCualquieraDeLosEstudiantes(@Param("nombre") String nombre);
+
+    // Buscar todos los formatos con estado específico (asumiendo que objEstado.estado es una cadena)
+    /*@Query("SELECT f FROM FormatoTIAEntity f WHERE f.objEstado.estado = :estado")
+    List<FormatoTIAEntity> findByEstado(@Param("estado") String estado);*/
 }

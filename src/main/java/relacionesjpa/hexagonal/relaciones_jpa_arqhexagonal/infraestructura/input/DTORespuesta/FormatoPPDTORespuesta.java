@@ -14,8 +14,7 @@ public class FormatoPPDTORespuesta extends FormatoDTORespuesta {
     private String nombreAsesor;
     private String nombreEstudiante1;
 
-    public FormatoPPDTORespuesta(String objetivoGeneral, String titulo, List<String> objetivosEspecificos
-            /*EstadoDTORespuesta estado*/, DocenteDTORespuesta objDocente,String nombreAsesor, String nombreEstudiante1) {
+    public FormatoPPDTORespuesta(String objetivoGeneral, String titulo, List<String> objetivosEspecificos, /*EstadoDTORespuesta estado*/ DocenteDTORespuesta objDocente,String nombreAsesor, String nombreEstudiante1) {
         super(objetivoGeneral, titulo, objetivosEspecificos, /*estado*/ objDocente);
         
         this.nombreAsesor = nombreAsesor;

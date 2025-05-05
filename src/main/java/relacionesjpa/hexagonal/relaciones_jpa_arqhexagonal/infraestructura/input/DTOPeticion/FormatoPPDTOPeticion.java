@@ -11,26 +11,29 @@ import lombok.Setter;
 @Setter
 public class FormatoPPDTOPeticion extends  FormatoDTOPeticion{
     
+
+    private String nombreAsesor;
     @NotBlank(message = "{formato.nombreEstudiante1.notblank}")
     private String nombreEstudiante1;
 
-    @NotBlank(message = "{formato.codigoEstudiante.notblank}")
+    /*@NotBlank(message = "{formato.codigoEstudiante.notblank}")
     @Pattern(regexp = "^\\d+$", message = "{solo.numeros}")
-    private String codigoEstudiante1;
+    private String codigoEstudiante1;*/
     
-    private String nombreEstudiante2;
+   /*private String nombreEstudiante2;
 
-    private String codigoEstudiante2;
+    private String codigoEstudiante2;*/
 
+
+    private String rutaCartaAceptacion;
     
     public FormatoPPDTOPeticion(String objetivoGeneral, String titulo, List<String> objetivosEspecificos
-            , String nombreEstudiante1, String codigoEstudiante1,String nombreEstudiante2, String codigoEstudiante2 ,DocenteDTOPeticion docente) {
+            , String nombreEstudiante1,String nombreAsesor,String rutaCartaAceptacion,DocenteDTOPeticion docente) {
         super(objetivoGeneral, titulo,  objetivosEspecificos, docente);
 
         this.nombreEstudiante1 = nombreEstudiante1;
-        this.nombreEstudiante2 = nombreEstudiante2;
-        this.codigoEstudiante1 = codigoEstudiante1;
-        this.codigoEstudiante2 = codigoEstudiante2;
+        this.nombreAsesor = nombreAsesor;
+        this.rutaCartaAceptacion = rutaCartaAceptacion;
     }
 
 }

@@ -30,6 +30,7 @@ public class EstadoEntity {
     @Column(unique = true, nullable = false)
     private int idEstado;
     @Column(name = "estado_actual", nullable = false, length = 50)
+    
     private String estadoActual;
     @Column(name = "fecha_registro_estado", nullable = false)
     private Date fechaRegistroEstado;

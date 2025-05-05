@@ -10,13 +10,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class FormatoA {
+public class FormatoA {
     
     private int idFormatoA;
     private String titulo;
     private String objetivoGeneral;
     private String objetivosEspecificos;
     private Estado estado;
+    private Docente objDocente;
 
     public FormatoA(String titulo, String objetivoGeneral, String objetivosEspecificos) {
         this.titulo = titulo;
