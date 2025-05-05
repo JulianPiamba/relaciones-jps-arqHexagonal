@@ -26,6 +26,5 @@ public class FormateadorResultadosImplAdapter implements FormateadorResultadosOu
     public void retornarRespuestaErrorEntidadNoExiste(String mensaje) {
         EntidadNoExisteException objException = new EntidadNoExisteException(mensaje);
         throw objException;
-}
-
+    }
 }

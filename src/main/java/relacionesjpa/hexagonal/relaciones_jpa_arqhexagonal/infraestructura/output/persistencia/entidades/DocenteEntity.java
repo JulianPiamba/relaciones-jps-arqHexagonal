@@ -2,6 +2,7 @@ package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outp
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,13 +29,13 @@ public class DocenteEntity {
 
     @Column(unique = true, nullable = false)
     private int idDocente;
-    @Column(name = "nombres_docente", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String nombresDocente;
-    @Column(name = "apellidos_docente", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String apellidosDocente;
-    @Column(name = "nombre_grupo", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String nombreGrupo;
-    @Column(unique = true, name = "correo", nullable = false, length = 100)
+    @Column(unique = true, nullable = false, length = 100)
     private String correo;
 
     //Un docente puede tener muchos formatos A
@@ -51,7 +52,7 @@ public class DocenteEntity {
     private List<ObservacionEntity> observaciones;
 
     //Un docente tiene muchos historicos
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "objDocente")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objDocente", cascade = {CascadeType.PERSIST})
     private List<HistoricoEntity> historicos;
 
     public DocenteEntity(){}

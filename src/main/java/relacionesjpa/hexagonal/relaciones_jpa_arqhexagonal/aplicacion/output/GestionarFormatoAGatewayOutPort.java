@@ -8,7 +8,7 @@ public interface GestionarFormatoAGatewayOutPort {
     
     public FormatoPPA crearFormatoPPA(FormatoPPA formatoppa);
     public FormatoPPA modificarFormatoPPA(FormatoPPA formatoppa);
-    public String cambiarEstado(int idFormatoA, String estado);
+    public String cambiarEstado(Integer idFormatoA, String estado);
     public FormatoPPA buscarFormatoPPAPorId(int idFormatoA);
 
     public FormatoTIA crearFormatoTIA(FormatoTIA formatotia);

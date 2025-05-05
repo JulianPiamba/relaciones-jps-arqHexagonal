@@ -31,9 +31,9 @@ public class ObservacionEntity {
 
     @Column(unique = true, nullable = false)
     private int idObservacion;
-    @Column(name = "observacion", nullable = true, columnDefinition = "TEXT")
+    @Column(nullable = true, columnDefinition = "TEXT")
     private String observacion;
-    @Column(name = "fecha_registro_observacion", nullable = true)
+    @Column(nullable = true)
     private Date fechaRegistroObservacion;
 
     //Muchas observaciones pertenecen a una evaluación
@@ -41,7 +41,8 @@ public class ObservacionEntity {
     @JoinColumn(name = "idFkEvaluacion", nullable = false)
     private EvaluacionEntity objEvaluacion;
     
-    @ManyToMany(mappedBy = "observaciones", fetch = FetchType.EAGER)
+    //Muchas observaciones pertenecen a muchos docentes
+    @ManyToMany(mappedBy = "observaciones", fetch = FetchType.LAZY)
     private List<DocenteEntity> docentes;
 
 }

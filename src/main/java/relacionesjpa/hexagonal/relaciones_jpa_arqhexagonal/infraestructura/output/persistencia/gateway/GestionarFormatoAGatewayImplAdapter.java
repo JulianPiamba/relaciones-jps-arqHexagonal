@@ -61,7 +61,7 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
 
 
     @Override
-    public String cambiarEstado(int idFormatoA, String estado) {
+    public String cambiarEstado(Integer idFormatoA, String estado) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'cambiarEstado'");
     }

@@ -13,5 +13,7 @@ public class Historico {
     private Boolean activo;
     private Date fechaInicio;
     private Date fechaFin;
+    private Docente objDocente;
+    private Rol objRol;
 
 }
