@@ -36,5 +36,4 @@ public class GestionarDocenteCUAdapter implements GestionarDocenteCUIntPort {
         }
         return listaDocentesObtenida;
     }
-    
 }

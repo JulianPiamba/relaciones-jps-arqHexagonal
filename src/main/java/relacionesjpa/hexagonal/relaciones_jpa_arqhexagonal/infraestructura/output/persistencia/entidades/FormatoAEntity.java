@@ -42,6 +42,8 @@ public abstract class FormatoAEntity {
     @Column(name = "objetivos_especificos", nullable = false, columnDefinition = "TEXT")
     private String objetivosEspecificos;
 
+    
+
     // Un formato tiene un estado
     @OneToOne(mappedBy = "objFormatoA", cascade = CascadeType.PERSIST)
     private EstadoEntity objEstado;

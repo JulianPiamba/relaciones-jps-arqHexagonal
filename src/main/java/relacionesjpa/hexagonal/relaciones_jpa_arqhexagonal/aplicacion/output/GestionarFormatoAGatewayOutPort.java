@@ -1,12 +1,10 @@
-package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.input;
+package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output;
 
-import java.util.List;
-import java.util.Date;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoPPA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoTIA;
 
-public interface GestionarFormatoACUIntPort {
+public interface GestionarFormatoAGatewayOutPort {
     
     public FormatoPPA crearFormatoPPA(FormatoPPA formatoppa);
     public FormatoPPA modificarFormatoPPA(FormatoPPA formatoppa);
@@ -17,8 +15,6 @@ public interface GestionarFormatoACUIntPort {
     public FormatoTIA modificarFormatoTIA(FormatoTIA formatotia);
     public FormatoTIA buscarFormatoTIAPorId(int idFormatoA);
 
-    
-    public List<FormatoA> buscarFormatoPorCorreoFechaInicioFin(String correo, Date fechaInicio, Date fechaFin);
-    public FormatoA listarObservacionPorFormatoA(int idFormatoA);
+    public FormatoPPA listarObservacionPorFormatoA(int idFormatoA);
 
 }

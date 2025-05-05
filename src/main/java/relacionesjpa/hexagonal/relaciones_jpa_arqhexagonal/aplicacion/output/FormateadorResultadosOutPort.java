@@ -7,5 +7,4 @@ public interface FormateadorResultadosOutPort {
     public void retornarRespuestaErrorReglaDeNegocio(String mensaje);
 
     public void retornarRespuestaErrorEntidadNoExiste(String mensaje);
-
 }

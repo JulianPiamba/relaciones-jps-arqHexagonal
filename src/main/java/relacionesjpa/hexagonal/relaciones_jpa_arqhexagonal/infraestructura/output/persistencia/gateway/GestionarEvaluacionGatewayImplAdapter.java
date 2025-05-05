@@ -17,5 +17,4 @@ public class GestionarEvaluacionGatewayImplAdapter implements GestionarEvaluacio
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'crearEvaluacion'");
     }
-    
 }

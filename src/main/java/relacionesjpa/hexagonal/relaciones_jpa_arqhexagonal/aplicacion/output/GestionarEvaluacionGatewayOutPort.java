@@ -5,5 +5,4 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Evalu
 public interface GestionarEvaluacionGatewayOutPort {
     
     public Evaluacion crearEvaluacion(Evaluacion evaluacion);
-    
 }

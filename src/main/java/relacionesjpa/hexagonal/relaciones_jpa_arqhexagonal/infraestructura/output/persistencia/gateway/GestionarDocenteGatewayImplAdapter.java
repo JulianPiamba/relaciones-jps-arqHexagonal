@@ -56,5 +56,4 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'existeDocenteByCorreo'");
     }
-    
 }

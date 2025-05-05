@@ -27,5 +27,4 @@ public class FormateadorResultadosImplAdapter implements FormateadorResultadosOu
         EntidadNoExisteException objException = new EntidadNoExisteException(mensaje);
         throw objException;
     }
-    
 }

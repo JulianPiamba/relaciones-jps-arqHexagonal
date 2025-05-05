@@ -25,5 +25,4 @@ public class GestionarObservacionGatewayImplAdapter implements GestionarObservac
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'listarObservaciones'");
     }
-    
 }
