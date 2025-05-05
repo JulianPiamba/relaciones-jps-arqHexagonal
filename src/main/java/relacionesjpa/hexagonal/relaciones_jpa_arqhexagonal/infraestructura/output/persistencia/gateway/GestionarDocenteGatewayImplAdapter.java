@@ -38,5 +38,23 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
         }.getType());
         return listaObtenida;
     }
+
+    @Override
+    public List<Docente> listarDocentesKeywords(String nombreGrupo, String apellido) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listarDocentesKeywords'");
+    }
+
+    @Override
+    public Docente listarFormatosByDocente(Integer idDocente) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listarFormatosByDocente'");
+    }
+
+    @Override
+    public boolean existeDocenteByCorreo(String correo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'existeDocenteByCorreo'");
+    }
     
 }

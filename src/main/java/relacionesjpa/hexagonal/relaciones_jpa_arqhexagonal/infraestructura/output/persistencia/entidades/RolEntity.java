@@ -2,6 +2,7 @@ package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outp
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,11 +29,11 @@ public class RolEntity {
 
     @Column(unique = true,nullable = false)
     private int idRol;
-    @Column(name = "role_asignado", nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     private String roleAsignado;
 
     //Un rol tiene muchos historicos
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "objRol")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objRol", cascade = {CascadeType.PERSIST})
     private List<HistoricoEntity> historicos;
     
 }

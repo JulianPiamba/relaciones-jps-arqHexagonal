@@ -1,9 +1,15 @@
 package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.util.List;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Docente {
     
@@ -12,7 +18,8 @@ public class Docente {
     private String apellidosDocente;
     private String nombreGrupo;
     private String correo;
-
-    public Docente(){}
-
+    private List<Observacion> objObservacion;
+    private List<FormatoA> objFormatoA;
+    private List<Historico> objHistorico;
+    
 }

@@ -29,11 +29,11 @@ public class EvaluacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEvaluacion;
-    @Column(name = "concepto", nullable = false, length = 255)
+    @Column(nullable = false, length = 255)
     private String concepto;
-    @Column(name = "nombre_coordinador", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String nombreCoordinador;
-    @Column(name = "fecha_registro_concepto", nullable = false)
+    @Column(nullable = false)
     private Date fechaRegistroConcepto;
 
     //Muchas evaluaciones pertenecen a un formato A
@@ -42,7 +42,7 @@ public class EvaluacionEntity {
     private FormatoAEntity objFormatoA;
 
     //Una evaluación tiene muchas observaciones
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "objEvaluacion")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objEvaluacion")
     private List<ObservacionEntity> observaciones;
 
 }

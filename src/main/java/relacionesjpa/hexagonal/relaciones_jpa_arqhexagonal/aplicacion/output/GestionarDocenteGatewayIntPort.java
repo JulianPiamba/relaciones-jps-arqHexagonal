@@ -8,4 +8,8 @@ public interface GestionarDocenteGatewayIntPort {
     
     public Docente guardarDocente(Docente docente);
     public List<Docente> listarTodos();
+    public List<Docente> listarDocentesKeywords(String nombreGrupo, String apellido);
+    public Docente listarFormatosByDocente(Integer idDocente);
+    public boolean existeDocenteByCorreo(String correo);
+
 }

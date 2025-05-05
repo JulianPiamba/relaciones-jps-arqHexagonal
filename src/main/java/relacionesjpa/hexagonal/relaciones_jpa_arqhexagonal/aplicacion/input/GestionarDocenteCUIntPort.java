@@ -7,5 +7,7 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docen
 public interface GestionarDocenteCUIntPort {
     
     public Docente crearDocente(Docente docente);
+
     public List<Docente> listarDocentes();
+
 }
