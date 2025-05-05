@@ -13,6 +13,7 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Forma
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.DocenteEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoAEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoPPAEntity;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.FormatoTIAEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.RolEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.mappers.DocenteMapper;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.mappers.FormatoAMapper;
@@ -56,6 +57,30 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
         return objFormatoAMapper.toDomain(formatoPPAEntity);
     }
 
+    
+    @Override
+    public FormatoTIA crearFormatoTIA(FormatoTIA formatoTIA) {
+        // Paso 1: Obtener el docente desde la base de datos
+        DocenteEntity docenteEntity = docenteRepositorio.findById(2)
+                .orElseThrow(() -> new EntityNotFoundException("Docente no encontrado"));
+
+        // Paso 2: Crear el estado y asignarlo al formato
+        Estado estado = new Estado();
+        estado.setEstadoActual("En formulacion");
+        estado.setFechaRegistroEstado(new java.util.Date());
+        formatoTIA.setEstado(estado);
+
+        // Paso 3: Mapear el modelo FormatoPPA a FormatoPPAEntity
+        FormatoTIAEntity formatoTIEntity = objFormatoAMapper.toEntity(formatoTIA);
+        formatoTIEntity.setObjDocente(docenteEntity);  // Asignar el docente al formato
+
+        // Paso 4: Guardar el formato en la base de datos
+        FormatoTIAEntity formatoGuardado = objFormatoTIARepositoryInt.save(formatoTIEntity);
+
+        // Paso 5: Mapear el formato guardado de vuelta a FormatoPPA y retornarlo
+        return objFormatoAMapper.toDomain(formatoTIEntity);
+    }
+
 
 
 
@@ -79,12 +104,6 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
         throw new UnsupportedOperationException("Unimplemented method 'buscarFormatoPPAPorId'");
     }
 
-
-    @Override
-    public FormatoTIA crearFormatoTIA(FormatoTIA formatotia) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearFormatoTIA'");
-    }
 
 
     @Override

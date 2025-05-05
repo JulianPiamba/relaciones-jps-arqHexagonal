@@ -33,11 +33,17 @@ public interface FormatoAMapperInfraestructuraDominio {
     //@Mapping(target = "estado", ignore = true)
     FormatoPPA mapearDePeticionAFormatoPPA(FormatoPPDTOPeticion dto);
 
+    @Mapping(target = "objetivosEspecificos", source = "objetivosEspecificos", qualifiedByName = "listaAString")
+    @Mapping(target = "idFormatoA", ignore = true)
+    //@Mapping(target = "estado", ignore = true)
+    FormatoTIA mapearDePeticionAFormatoTIA(FormatoTIDTOPeticion dto);
+
     // De modelo a DTO respuesta
     @Mapping(target = "objetivosEspecificos", source = "objetivosEspecificos", qualifiedByName = "stringALista")
     //@Mapping(target = "estado", source = "estado.nombre") // asumiendo que estado es un objeto con campo "nombre"
     @Mapping(target = "objDocente", ignore = true) // lo ignoramos porque no está en el modelo
     FormatoDTORespuesta mapearDeFormatoAARespuesta(FormatoA modelo);
+
 
     List<FormatoDTORespuesta> mapearListaFormatoA(List<FormatoA> modelos);
 

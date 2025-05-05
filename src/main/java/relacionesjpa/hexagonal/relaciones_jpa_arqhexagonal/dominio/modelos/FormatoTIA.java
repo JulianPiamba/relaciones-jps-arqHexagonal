@@ -18,11 +18,5 @@ public class FormatoTIA extends FormatoA{
         this.nombreEstudiante2 = nombreEstudiante2;
     }
 
-    public FormatoTIA(String titulo, String objetivoGeneral, String objetivosEspecificos,
-     String nombreEstudiante1)
-    {
-        super(titulo, objetivoGeneral, objetivosEspecificos);
-        this.nombreEstudiante1 = nombreEstudiante1;
-    }
 
 }

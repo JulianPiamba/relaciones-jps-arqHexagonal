@@ -25,6 +25,8 @@ public class FormatoPPAEntity extends FormatoAEntity{
     @Column(name = "ruta_carta_aceptacion", nullable = false, length = 255)
     private String rutaCartaAceptacion;
 
+
+
     public FormatoPPAEntity(String titulo, String objetivoGeneral, String objetivosEspecificos,
      String nombreAsesor, String nombreEstudiante1, String rutaCartaAceptacion)
     {

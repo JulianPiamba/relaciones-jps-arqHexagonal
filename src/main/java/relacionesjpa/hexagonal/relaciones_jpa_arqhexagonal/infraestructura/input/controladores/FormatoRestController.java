@@ -15,6 +15,7 @@ import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Forma
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.FormatoTIA;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.input.DTOPeticion.FormatoDTOPeticion;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.input.DTOPeticion.FormatoPPDTOPeticion;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.input.DTOPeticion.FormatoTIDTOPeticion;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.input.DTORespuesta.FormatoDTORespuesta;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.input.mappers.FormatoAMapperInfraestructuraDominio;
 
@@ -35,6 +36,16 @@ public class FormatoRestController {
         return new ResponseEntity<>(formatoDTORespuesta, HttpStatus.CREATED);
     }
     
+    @PostMapping("/crear/tia")
+    public ResponseEntity<FormatoDTORespuesta> crearFormatoTIA(@RequestBody @Valid FormatoTIDTOPeticion formatoDTOPeticion) {
+
+        FormatoTIA formatoTIA = formatoMapper.mapearDePeticionAFormatoTIA(formatoDTOPeticion);
+        FormatoTIA formatoCreado = gestionarFormatoACUIntPort.crearFormatoTIA(formatoTIA);
+        FormatoDTORespuesta formatoDTORespuesta = formatoMapper.mapearDeFormatoAARespuesta(formatoCreado);
+
+        return new ResponseEntity<>(formatoDTORespuesta, HttpStatus.CREATED);
+    }
+
 
     // Método para crear FormatoTIA
     /*@PostMapping("/crear/tia")
