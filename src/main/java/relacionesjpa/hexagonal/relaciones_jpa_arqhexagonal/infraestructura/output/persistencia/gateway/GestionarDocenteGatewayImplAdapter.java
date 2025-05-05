@@ -55,6 +55,6 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
     public boolean existeDocenteByCorreo(String correo) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'existeDocenteByCorreo'");
-    }
-    
+}
+
 }
