@@ -4,7 +4,7 @@ import java.util.List;
 
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
 
-public interface GestionarDocenteGatewayIntPort {
+public interface GestionarDocenteGatewayOutPort {
     
     public Docente guardarDocente(Docente docente);
     public List<Docente> listarTodos();

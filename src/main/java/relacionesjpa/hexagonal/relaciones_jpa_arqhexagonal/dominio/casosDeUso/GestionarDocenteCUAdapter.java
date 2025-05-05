@@ -4,15 +4,15 @@ import java.util.List;
 
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.input.GestionarDocenteCUIntPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.FormateadorResultadosOutPort;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarDocenteGatewayIntPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarDocenteGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
 
 public class GestionarDocenteCUAdapter implements GestionarDocenteCUIntPort {
 
-    private final GestionarDocenteGatewayIntPort objGestionarDocenteGateway;
+    private final GestionarDocenteGatewayOutPort objGestionarDocenteGateway;
     private final FormateadorResultadosOutPort objFormateadorResultadosOutPort;
 
-    public GestionarDocenteCUAdapter(GestionarDocenteGatewayIntPort objRegistrarDocenteGateway,
+    public GestionarDocenteCUAdapter(GestionarDocenteGatewayOutPort objRegistrarDocenteGateway,
     FormateadorResultadosOutPort objFormateadorResultadosOutPort
     ){
         this.objGestionarDocenteGateway = objRegistrarDocenteGateway;

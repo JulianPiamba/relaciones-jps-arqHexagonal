@@ -17,5 +17,11 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'guardarFormatoTIA'");
     }
+
+    @Override
+    public String cambiarEstado(Integer idFormato, String estado) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'cambiarEstado'");
+    }
     
 }

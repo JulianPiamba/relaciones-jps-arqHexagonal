@@ -5,13 +5,13 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.modelmapper.TypeToken;
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarDocenteGatewayIntPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarDocenteGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Docente;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.entidades.DocenteEntity;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.repositorios.DocentesRepositoryInt;
 
 @Service
-public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatewayIntPort {
+public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatewayOutPort {
 
     private final DocentesRepositoryInt objDocenteRepository;
     private final ModelMapper docenteModelMapper;

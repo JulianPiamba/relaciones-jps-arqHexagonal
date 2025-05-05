@@ -7,4 +7,5 @@ public interface GestionarFormatoAGatewayIntPort {
     
     public FormatoPPA guardarFormatoPPA(FormatoPPA formatoppa);
     public FormatoTIA guardarFormatoTIA(FormatoTIA formatotia);
+    public String cambiarEstado(Integer idFormato, String estado);
 }

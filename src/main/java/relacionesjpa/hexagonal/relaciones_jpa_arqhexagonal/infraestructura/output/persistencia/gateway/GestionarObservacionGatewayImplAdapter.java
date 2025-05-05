@@ -2,11 +2,11 @@ package relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.outp
 
 import java.util.List;
 
-import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarObservacionGatewayIntPort;
+import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.aplicacion.output.GestionarObservacionGatewayOutPort;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Observacion;
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.infraestructura.output.persistencia.repositorios.ObservacionesRepositoryInt;
 
-public class GestionarObservacionGatewayImplAdapter implements GestionarObservacionGatewayIntPort {
+public class GestionarObservacionGatewayImplAdapter implements GestionarObservacionGatewayOutPort {
 
     private final ObservacionesRepositoryInt objObservacionRepository;
 

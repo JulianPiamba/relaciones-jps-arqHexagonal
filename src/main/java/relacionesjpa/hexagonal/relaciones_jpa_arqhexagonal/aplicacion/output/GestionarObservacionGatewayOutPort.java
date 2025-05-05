@@ -4,7 +4,7 @@ import java.util.List;
 
 import relacionesjpa.hexagonal.relaciones_jpa_arqhexagonal.dominio.modelos.Observacion;
 
-public interface GestionarObservacionGatewayIntPort {
+public interface GestionarObservacionGatewayOutPort {
     
     public Observacion crearObservacion(Observacion observacon);
     public List<Observacion> listarObservaciones();
